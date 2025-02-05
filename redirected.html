@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emmibele - redirected</title>
+  </head>
+  <body>
+    <h1>you were redirected</h1>
+    <p>You probably wanted to visit a page you did not want to visit again in the future</p>
+    <p>Target: <span id="target"></span></p>
+    <p>Reason: <span id="reason"></span></p>
+    <script>
+      function setInfo(){
+        const url = new URL(window.location.href);
+        const target = url.searchParams.get('target');
+        const reason = url.searchParams.get('reason');
+        console.log(reason);
+        document.getElementById('target').textContent = target;
+        document.getElementById('reason').textContent = reason;
+      }
+      document.onLoad = setInfo();
+    </script>
+  </body>
+</html>
